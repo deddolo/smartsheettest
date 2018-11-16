@@ -44,6 +44,7 @@ def create_webhook():
             'scope':'sheet',
             'scopeObjectId': 7292894332643204,
             'events' : ['*.*'],
+            'enabled':True,
             'version': 1
         })
     )
