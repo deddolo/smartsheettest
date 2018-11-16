@@ -11,16 +11,27 @@ print("I'm starting...")
 
 @app.route("/")
 def hello():
+    print("hello hello")
     return "Hello world!"
 
 @app.route("/test", methods=['GET','POST'])
 def response():
     if request.headers['Content-Type'] == 'application/json':
-        data = request.json
+        print("json type")
+        print(request)
+        print(dir(request))
+        data = request.get_json()
+        print(dir(data))
         print(data)
-        if data.challenge:
-            return Response({"smartsheetHookResponse":data.challenge}, status=200)
-    return Response('',status=200)
+        if data.get('challenge',None):
+            print("found a challenge attribute")
+            return Response({"smartsheetHookResponse":data['challenge']}, status=200)
+        else:
+            print(data)
+            return Response('', status=200)
+    else:
+        print("no json")
+        return Response('tested!',status=200)
 
 @app.route("/createwebhook")
 def create_webhook():
