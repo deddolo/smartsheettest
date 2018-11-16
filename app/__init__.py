@@ -18,6 +18,7 @@ def hello():
 @app.route("/test", methods=['GET','POST'])
 def response():
     print(request.headers['Content-Type'])
+    print(request.headers)
     if request.headers['Content-Type'] == 'application/json':
         print("json type")
         print(request)
