@@ -53,4 +53,3 @@ def create_webhook():
     ss_client.models.Webhook({
         'enabled': True}))
     return "maybe all good"
-, 
