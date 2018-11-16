@@ -2,6 +2,7 @@ from flask import Flask
 from flask import Response
 from flask import request
 from flask import json
+from flask import jsonify
 import smartsheet
 
 #init app
@@ -25,7 +26,7 @@ def response():
         print(data)
         if data.get('challenge',None):
             print("found a challenge attribute")
-            return Response({"smartsheetHookResponse":data['challenge']}, status=200)
+            return jsonify({"smartsheetHookResponse":data['challenge']})
         else:
             print(data)
             return Response('', status=200)
