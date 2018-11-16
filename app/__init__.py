@@ -19,7 +19,7 @@ def hello():
 def response():
     print(request.headers['Content-Type'])
     print(request.headers)
-    if 'application/json' in request.headers['Content-Type']
+    if 'application/json' in request.headers['Content-Type']:
         print("json type")
         print(request)
         print(dir(request))
