@@ -46,3 +46,4 @@ def create_webhook():
             'version': 1
         })
     )
+    return "maybe all good"
