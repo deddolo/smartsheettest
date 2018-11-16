@@ -44,9 +44,13 @@ def create_webhook():
             'scope':'sheet',
             'scopeObjectId': 7292894332643204,
             'events' : ['*.*'],
-            'enabled':True,
             'version': 1
         })
     )
-    print(Webhook)
+    wh = json.loads(Webhook)
+    print(wh)
+    ss_client.Webhooks.update_webhook(wh.id_,
+    ss_client.models.Webhook({
+        'enabled': True}))
     return "maybe all good"
+, 
